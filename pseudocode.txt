@@ -1,0 +1,58 @@
+2 buttons
+- bring in new word without resetting scores
+- reset the page to zero everthing out
+
+array with the alphabet (alphabetArray)
+
+empty array for used letters (usedArray)
+
+variable for wins (wins)
+- display on page - initial value 0
+
+variable for losses (losses)
+- display on page - initial value 0
+
+variable for remaining allowable misses (chances)
+- display on page - initial value 3, 6 ???
+
+read word from array or external file?
+- put word into its own array with each character a separate element (wordArray)
+- create another array the same length as the wordArray, but filled with placeholder characters (guessArray)
+  * replace the correct placeholder in the guessArray with any spaces or other special characters
+
+display the guessArray on the page
+
+check the chances variable
+- if it =0
+  * increment losses
+  * update page display
+  * alert player "Game Over"
+- if it >0
+  * check the index of "_" in guessArray
+    > if it =-1
+      ~ increment wins
+      ~ update page display
+      ~ alert player "Winner"
+    > if it !=-1, continue
+
+read the players guess
+- force all lower case
+
+check players guess against:
+- alphabetArray (verify that the guess is a letter)
+  * if guess is not in array, alert player that guess is not allowed
+  * otherwise continue
+- usedArray (verify that the guess has not been used before)
+  * if guess is in array, alert player that the guess has already been used
+  * otherwise
+    > put the guess in the usedArray
+    > display on page
+    > continue
+- wordArray (check if the guess is part of the chosen word)
+  * if guess is in array
+    > retrieve the index(s) of the guess
+    > update the guessArray by putting the guess in the correct position(s)
+    > update the page display with the guess in the correct position(s)
+  * otherwise
+    > decrement the chances variable
+    > update the page display with the new value for remaining allowable misses

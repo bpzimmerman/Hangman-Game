@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- CSS links -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <title>Guess the Dog Breed</title>
+</head>
+<body>
+    
+    <div id="game">
+        <h1>Dog Breeds</h1>
+        <button onClick="start()">Start</button>
+        <h2>Choose a letter!</h2>
+        <h3>Current Breed: <span id="word" style="white-space:pre-wrap">Click Start for a new word!</span></h3>
+        <br>
+        <h3>Used Letters:</h3>
+        <div id="use"></div>
+        <br>
+        <h3>Score</h3>
+        <p>Wins: <span id="wins">0</span></p>
+        <p>Losses: <span id="losses">0</span></p>
+        <p>Remaining Allowable Misses: <span id="chances"></span></p>
+        <br>
+        <button onClick="reset()">Reset Game</button>
+    </div>
+    
+    <!-- JQuery -->
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Game javascript -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>
