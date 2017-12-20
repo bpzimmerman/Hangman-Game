@@ -8,29 +8,82 @@
     <!-- Latest compiled and minified CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- CSS links -->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- CSS link -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <title>Guess the Dog Breed</title>
 </head>
 <body>
     
-    <div id="game">
-        <h1>Dog Breeds</h1>
-        <button onClick="start()">Start</button>
-        <h2>Choose a letter!</h2>
-        <h3>Current Breed: <span id="word" style="white-space:pre-wrap">Click Start for a new word!</span></h3>
-        <br>
-        <h3>Used Letters:</h3>
-        <div id="use"></div>
-        <br>
-        <h3>Score</h3>
-        <p>Wins: <span id="wins">0</span></p>
-        <p>Losses: <span id="losses">0</span></p>
-        <p>Remaining Allowable Misses: <span id="chances"></span></p>
-        <br>
-        <button onClick="reset()">Reset Game</button>
+    <div id="game" class="container">
+        <div class="row">
+            <header><h1>Dog Breeds</h1></header>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <img src="assets/images/question.png" alt="Questioning Dog" id="picture">
+            </div>
+            <div class="col-md-8">
+                <h2>Press Start for a New Word</h2>
+                <button onClick="start()">Start</button>
+                <h3>Current Word</h3>
+                <div id="word"></div>
+                <br><br>
+                <p>Misses Remaining: <span id="chances"></span></p>
+                <div class="col-md-6">
+                    <p>Wins</p>
+                    <div id="wins">0</div>
+                </div>
+                <div class="col-md-6">
+                    <p>Losses</p>
+                    <div id="losses">0</div>
+                </div>
+                <button onClick="reset()">Reset Game</button>
+            </div>
+            <div class="col-md-2">
+                <div>
+                    <span id="ua">A</span>
+                    <span id="ub">B</span>
+                    <span id="uc">C</span>
+                    <span id="ud">D</span>
+                </div>
+                <div>
+                    <span id="ue">E</span>
+                    <span id="uf">F</span>
+                    <span id="ug">G</span>
+                    <span id="uh">H</span>
+                </div>
+                <div>
+                    <span id="ui">I</span>
+                    <span id="uj">J</span>
+                    <span id="uk">K</span>
+                    <span id="ul">L</span>
+                    <span id="um">M</span>
+                </div>
+                <div>
+                    <span id="un">N</span>
+                    <span id="uo">O</span>
+                    <span id="up">P</span>
+                    <span id="uq">Q</span>
+                </div>
+                <div>
+                    <span id="ur">R</span>
+                    <span id="us">S</span>
+                    <span id="ut">T</span>
+                    <span id="uu">U</span>
+                    <span id="uv">V</span>
+                </div>
+                <div>
+                    <span id="uw">W</span>
+                    <span id="ux">X</span>
+                    <span id="uy">Y</span>
+                    <span id="uz">Z</span>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </div>
     </div>
     
     <!-- JQuery -->
@@ -43,6 +96,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- Game javascript -->
+    <script type="text/javascript" src="assets/javascript/data.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </body>
 </html>

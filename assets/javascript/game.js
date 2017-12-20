@@ -1,7 +1,3 @@
-var breeds = ["basenji", "beagle", "petit basset griffon vendeen", "greyhound", "german shepherd", "belgian malinois", "poodle", "american english coonhound"];
-
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
 var dogArray = [];
 var guessArray = [];
 var usedArray = [];
@@ -11,6 +7,8 @@ var dog;
 var press;
 var alphaIndex;
 var letterIndex;
+var imgIndex;
+var pic;
 var won = document.getElementById("wins");
 var lost = document.getElementById("losses");
 var chance = document.getElementById("chances");
@@ -18,18 +16,28 @@ var used = document.getElementById("use");
 var w = 0;
 var l = 0;
 var c;
-    
-// Start button: initialize temporary arrays, get new word, put new word in array, put placeholders in array  accounting for spaces (same length at word array)
+
+function selectImg (imgArray){
+    imgIndex = Math.floor(Math.random() * imgArray.length);
+    pic = imgArray[imgIndex];
+    document.getElementById("picture").src = "assets/images/" + pic;
+    document.getElementById("picture").alt = pic;
+};
+
+// Start button: initialize temporary arrays, get new word, put new word in array, put placeholders in array accounting for spaces (same length at word array)
 function start() {
-    c = 3;
+    c = 5;
     chance.textContent = c;
     dogArray.length = 0;
     guessArray.length = 0;
+    for (var j = 0; j < usedArray.length; j+=1){
+        document.getElementById("u" + usedArray[j]).style.visibility = "initial";
+    };
     usedArray.length = 0;
-    used.textContent = usedArray.join(" ");
     breedIndex = Math.floor(Math.random() * breeds.length);
-    dog = breeds[breedIndex];
-    for (x = 0; x < dog.length; x+=1){
+    dog = breeds[breedIndex].toLowerCase();
+    console.log(dog);
+    for (var x = 0; x < dog.length; x+=1){
         dogArray.push(dog.charAt(x));
         if (dog.charAt(x) === " "){
             guessArray.push(" ");
@@ -37,10 +45,10 @@ function start() {
         else {
             guessArray.push("_")
         };
-    }
+    };
     
     newWord.textContent = guessArray.join(" ");
-    console.log(dog);
+    selectImg(initImgArray);
 };
 
 // Reset Game button: reset entire game to on-load default values
@@ -68,9 +76,7 @@ document.onkeyup = function(event){
     }
     else {
         usedArray.push(press);
-        usedArray.sort();
-        used.textContent = usedArray.join(" ");
-        console.log = usedArray.join(" ");
+        document.getElementById("u" + press).style.visibility = "hidden";
         if (letterIndex === -1){
             c -= 1;
             chance.textContent = c;
@@ -78,10 +84,9 @@ document.onkeyup = function(event){
                 alert("You Lost! Click Start to select a new word.");
                 l += 1;
                 lost.textContent = l;
+                selectImg(lossImgArray);
+                newWord.textContent = dogArray.join(" ");
             }
-            else{
-                alert("The letter you selected is not in the word! Select a different letter.");
-            };
         }
         else{
             var i = letterIndex;
@@ -96,6 +101,7 @@ document.onkeyup = function(event){
                 alert("You Won! Click Start to select a new word.");
                 w += 1;
                 won.textContent = w;
+                selectImg(winImgArray);
             };
         };
     };

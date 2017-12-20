@@ -1,0 +1,44 @@
+/* paletton.com base color 581A01 */
+
+@font-face{
+    font-family: pawPrints;
+    src: url(ck_good_dog.ttf);
+}
+
+*{
+    font-family: pawPrints;
+    color: #803415;
+    text-align: center;
+}
+
+h1{
+    font-size: 5vw;
+}
+
+h2{
+    font-size: 2.32vw;
+}
+
+h3{
+    font-size: 1.86vw;
+}
+
+p, button{
+    font-size: 1.25vw;
+}
+
+#word{
+    color: #013C23;
+    white-space: pre-wrap;
+    font-size: 1.3vw;
+}
+
+.col-md-2{
+    margin-top: 20px;
+    font-size: 2.1vw;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
