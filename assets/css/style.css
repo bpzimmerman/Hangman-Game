@@ -11,6 +11,12 @@
     text-align: center;
 }
 
+body{
+    background: url("../images/wallpaper.png");
+    background-size: 100%;
+    background-color: rgb(174, 209, 174);
+}
+
 h1{
     font-size: 5vw;
 }
@@ -41,4 +47,9 @@ p, button{
 img{
     width: 100%;
     height: auto;
+}
+
+#letters{
+    border-bottom: 2px solid #803415;
+    margin-top: 0;
 }
