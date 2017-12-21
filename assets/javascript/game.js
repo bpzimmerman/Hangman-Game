@@ -6,8 +6,11 @@ var won = document.getElementById("wins");
 var lost = document.getElementById("losses");
 var chance = document.getElementById("chances");
 var used = document.getElementById("use");
+var instruction = document.getElementById("inst");
 var press;
 var lID;
+var snd;
+var song;
 var w = 0;
 var l = 0;
 var c;
@@ -31,7 +34,7 @@ function start() {
     usedArray.length = 0;
     var breedIndex = Math.floor(Math.random() * breeds.length);
     var dog = breeds[breedIndex].toLowerCase();
-    console.log(dog);
+    // console.log(dog); // displays the solution in the console log
     for (var x = 0; x < dog.length; x+=1){
         dogArray.push(dog.charAt(x));
         if (dog.charAt(x) === " "){
@@ -43,6 +46,7 @@ function start() {
     };
     
     newWord.textContent = guessArray.join(" ");
+    instruction.innerHTML = "<h3>Click on one of the Available Letters or use the keyboard to guess a letter.";
     selectImg(initImgArray);
 };
 
@@ -63,7 +67,7 @@ document.onkeyup = function(event){
     eval(letter);
 };
 
-// evalute guesses and track score
+// Evalute guesses and track score
 function eval(press){
     var usedIndex = usedArray.indexOf(press);
     var alphaIndex = alphabet.indexOf(press);
@@ -91,7 +95,8 @@ function eval(press){
                 l += 1;
                 lost.textContent = l;
                 selectImg(lossImgArray);
-                newWord.textContent = dogArray.join(" ");
+                newWord.textContent = dogArray.join(" ").toUpperCase();
+                instruction.innerHTML = "<h2>Press Start for a New Word";
             }
         }
         else{
@@ -101,13 +106,14 @@ function eval(press){
                 i = dogArray.indexOf(press, i+=1);
             };
 
-            newWord.textContent = guessArray.join(" ");
+            newWord.textContent = guessArray.join(" ").toUpperCase();
 
             if (guessArray.indexOf("_") === -1){
                 alert("You Won! Click Start to select a new word.");
                 w += 1;
                 won.textContent = w;
                 selectImg(winImgArray);
+                instruction.innerHTML = "<h2>Press Start for a New Word";
             };
         };
     };
