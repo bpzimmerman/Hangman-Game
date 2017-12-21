@@ -2,24 +2,19 @@ var dogArray = [];
 var guessArray = [];
 var usedArray = [];
 var newWord = document.getElementById("word");
-var breedIndex;
-var dog;
-var press;
-var alphaIndex;
-var letterIndex;
-var imgIndex;
-var pic;
 var won = document.getElementById("wins");
 var lost = document.getElementById("losses");
 var chance = document.getElementById("chances");
 var used = document.getElementById("use");
+var press;
+var lID;
 var w = 0;
 var l = 0;
 var c;
 
 function selectImg (imgArray){
-    imgIndex = Math.floor(Math.random() * imgArray.length);
-    pic = imgArray[imgIndex];
+    var imgIndex = Math.floor(Math.random() * imgArray.length);
+    var pic = imgArray[imgIndex];
     document.getElementById("picture").src = "assets/images/" + pic;
     document.getElementById("picture").alt = pic;
 };
@@ -34,8 +29,8 @@ function start() {
         document.getElementById("u" + usedArray[j]).style.visibility = "initial";
     };
     usedArray.length = 0;
-    breedIndex = Math.floor(Math.random() * breeds.length);
-    dog = breeds[breedIndex].toLowerCase();
+    var breedIndex = Math.floor(Math.random() * breeds.length);
+    var dog = breeds[breedIndex].toLowerCase();
     console.log(dog);
     for (var x = 0; x < dog.length; x+=1){
         dogArray.push(dog.charAt(x));
@@ -56,25 +51,36 @@ function reset(){
     location.reload(true)
 };
 
-// log and evaluate guesses; track score 
+// Letter click function
+function letterClick(lID){
+    var letter = document.getElementById(lID).textContent.toLowerCase();
+    eval(letter);
+};
+
+// Letter press fuction 
 document.onkeyup = function(event){
-    press = event.key.toLowerCase();
-    usedIndex = usedArray.indexOf(press);
-    alphaIndex = alphabet.indexOf(press);
-    letterIndex = dogArray.indexOf(press);
-    if (guessArray.indexOf("_") === -1){
+    var letter = event.key.toLowerCase();
+    eval(letter);
+};
+
+// evalute guesses and track score
+function eval(press){
+    var usedIndex = usedArray.indexOf(press);
+    var alphaIndex = alphabet.indexOf(press);
+    var letterIndex = dogArray.indexOf(press);
+    if (dogArray.length === 0){
+        alert("Click Start to select a new word");
+    }
+    else if (guessArray.indexOf("_") === -1){
         alert("You Won! Click Start to select a new word.");
     }
     else if (c === 0){
         alert("You Lost! Click Start to select a new word.");
     }
     else if (alphaIndex === -1){
-        alert("You selected " + event.key + ". Please select a letter.");
+        alert("You selected " + press + ". Please select a letter.");
     }
-    else if (usedIndex != -1){
-        alert("You selected a letter that has already been tried! Select a different letter.");
-    }
-    else {
+    else if (usedIndex === -1){
         usedArray.push(press);
         document.getElementById("u" + press).style.visibility = "hidden";
         if (letterIndex === -1){
