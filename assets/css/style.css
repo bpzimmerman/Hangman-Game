@@ -22,7 +22,7 @@ h1{
 }
 
 h2{
-    font-size: 2.32vw;
+    font-size: 2.1vw;
 }
 
 h3{
@@ -30,7 +30,7 @@ h3{
 }
 
 p, button{
-    font-size: 1.25vw;
+    font-size: 1.5vw;
 }
 
 #word{
@@ -39,9 +39,13 @@ p, button{
     font-size: 1.3vw;
 }
 
+#wins, #losses{
+    font-size: 1.25vw;
+}
+
 .col-md-2{
     margin-top: 20px;
-    font-size: 2.1vw;
+    font-size: 1.71vw;
 }
 
 img{
